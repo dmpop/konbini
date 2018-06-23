@@ -3,8 +3,8 @@
 sudo zypper install -y git jhead xdpyinfo intltool gtk2-devel nasm libtool xclip bc jq ImageMagick ffmpeg hugin exiftool
 sudo zypper install -y -t pattern devel_basis
 
-sudo mkdir /usr/share/kservices5/ServiceMenus
-sudo mkdir /usr/share/icons/konbini-icons
+sudo mkdir -p /usr/share/kservices5/ServiceMenus
+sudo mkdir -p /usr/share/icons/konbini-icons
 
 git clone https://gitlab.com/dmpop/konbini.git
 cd konbini

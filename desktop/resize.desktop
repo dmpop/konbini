@@ -1,11 +1,11 @@
 [Desktop Entry]
 Type=Service
 X-KDE-Priority=TopLevel
-X-KDE-Submenu=Tomodachi
+X-KDE-Submenu=Konbini
 ServiceTypes=KonqPopupMenu/Plugin
 MimeType=image/*;
 Actions=Resize
 [Desktop Action Resize]
 Name=Resize Image
 Exec=/usr/local/bin/resize %f
-Icon=/usr/share/icons/tomodachi-icons/crop.png
+Icon=/usr/share/icons/konbini-icons/crop.png

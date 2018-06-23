@@ -1,5 +1,7 @@
 # Konbini コンビニコンビニ
 
+<img src="konbini.png" alt="Konbini">
+
 A set of Bash shell scripts and desktop files that add useful context actions to the Dolphin browser. The accompanying installer Bash shell script automatically installs and configures all the required components. Konbini includes the following actions and scripts:
 
 - [Photo Funnel](https://github.com/dmpop/photo-funnel), a simple graphical tool for importing, geotagging, and organizing photos and raw files. Run using the `pf` command.

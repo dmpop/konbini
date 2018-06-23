@@ -1,11 +1,11 @@
 [Desktop Entry]
 Type=Service
 X-KDE-Priority=TopLevel
-X-KDE-Submenu=Tomodachi
+X-KDE-Submenu=Konbini
 ServiceTypes=KonqPopupMenu/Plugin
 MimeType=image/JPEG;image/jpeg;image/JPG;image/jpg;
 Actions=Rename
 [Desktop Action Rename]
 Name=Rename using EXIF Datetime (Lower Case)
 Exec=/usr/local/bin/lorename %F
-Icon=/usr/share/icons/tomodachi-icons/arrow-down.png
+Icon=/usr/share/icons/konbini-icons/arrow-down.png
