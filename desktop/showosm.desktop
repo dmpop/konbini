@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Service
+X-KDE-Priority=TopLevel
+X-KDE-Submenu=Tomodachi
+ServiceTypes=KonqPopupMenu/Plugin
+MimeType=image/jpeg;image/JPG;image/JPEG;image/jpg;
+Actions=OpenStreetMap
+[Desktop Action OpenStreetMap]
+Name= Show on OpenStreetMap
+Exec=/usr/local/bin/showosm %f
+Icon=/usr/share/icons/tomodachi-icons/map-pin.png

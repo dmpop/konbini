@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Service
+X-KDE-Priority=TopLevel
+X-KDE-Submenu=Tomodachi
+ServiceTypes=KonqPopupMenu/Plugin
+MimeType=image/*;
+Actions=Resize
+[Desktop Action Resize]
+Name=Resize Image
+Exec=/usr/local/bin/resize %f
+Icon=/usr/share/icons/tomodachi-icons/crop.png

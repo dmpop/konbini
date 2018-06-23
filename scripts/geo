@@ -1,0 +1,4 @@
+#!/bin/bash
+latlon="geo:"$(xclip -o | tr -d ' ')
+notify-send $latlon -i info
+echo $latlon | xclip -selection c 

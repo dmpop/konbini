@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+ 
+wget -q --spider nominatim.openstreetmap.org
+if [ $? -ne 0 ]; then
+notify-send "Nominatim is not reachable. Check your Internet connection."
+exit 1
+fi
+ 
+input=$(kdialog --inputbox 'City:' --title 'Enter city name')
+if [ $? -ne 0 ]; then
+  exit 1
+fi
+city=${input// /%20}
+ 
+lat=$(curl "http://nominatim.openstreetmap.org/search?city=$1&country=$2&format=json" | jq '.[0] | .lat' | tr -d '"')
+if (( $(echo "$lat > 0" |bc -l) )); then
+  latref="N"
+else
+  latref="S"
+fi
+
+lon=$(curl "http://nominatim.openstreetmap.org/search?city=$1&country=$2&format=json" | jq '.[0] | .lon' | tr -d '"')
+if (( $(echo "$lat > 0" |bc -l) )); then
+  lonref="E"
+else
+  lonref="W"
+fi
+
+exiftool -overwrite_original -GPSLatitude=$lat -GPSLatitudeRef=$latref -GPSLongitude=$lon -GPSLongitudeRef=$lonref "$@"
+
+notify-send "Action completed" -i info 

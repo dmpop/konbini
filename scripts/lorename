@@ -1,0 +1,3 @@
+#!/bin/bash
+exiftool '-filename<CreateDate' -d %Y%m%d-%H%M%S%%-c.%%le "$@"
+notify-send "Action completed" -i info 

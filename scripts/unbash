@@ -1,0 +1,101 @@
+#!/usr/bin/env bash
+
+# User-defined parameters
+undir="$HOME/unbash"
+default_keyword="monkey"
+keyword_list="$HOME/keywords.txt"
+default_count="9"
+
+# Check whether the required packages are installed
+if [ ! -x "$(command -v wget)" ] || [ ! -x "$(command -v convert)" ] || [ ! -x "$(command -v xdpyinfo)" ]; then
+    echo "Install xdpyinfo, wget, and ImageMagick."
+    exit 1
+fi
+
+# Usage prompt
+usage(){
+cat <<EOF
+$0 [OPTIONS]
+
+$0 downloads a specified number of random photos matching a given keyword from Unsplash and generates an animated GIF
+
+Usage:
+  $0 -c <number> -k <keyword>
+
+Options:
+  -c --count       Specifies a number of photos to download
+  -k --keyword     Specifies the desired keyword
+EOF
+  exit 1
+}
+
+# Specify options
+OPTS=`getopt -o c:k: -l count:keyword: -- "$@"`
+[[ $# -eq 0 ]] && usage
+eval set -- "$OPTS"
+
+# Obtain values
+while true; do
+  case "$1" in
+    -c | --count ) count="$2"; shift 2;;
+    -k | --keyword ) keyword="$2"; shift 2;;
+    -- ) shift; break ;;
+    * ) break ;;
+  esac
+done
+
+# Check internet connection
+wget -q --spider http://source.unsplash.com/
+if [ $? -ne 0 ]; then
+    echo "Unsplash is not reachable. Check your Internet connection."
+    exit 1
+fi
+
+# If no keyword specified, check whether the keyword_list file exists
+# and pick a random word from the file.
+# If the keyword_list file doesn't exist, use the default keyword
+if [ -z "$keyword" ]; then
+    if [ ! -f "$keyword_list" ]; then
+    keyword=$default_keyword
+    else
+    keyword=$(shuf -n 1 "$keyword_list")
+    fi
+fi
+
+# If the count value is empty, use the default count
+if [ -z "$count" ]; then
+    count=$default_count
+fi
+
+# Check whether the unspiration directory exists
+# Remove and create if the directory already exists
+# Create it if the directory doesn't exist
+# Switch to the created directory
+if [ -d "$undir" ]; then
+    rm -rf "$undir"
+    mkdir "$undir"
+    cd "$undir"
+else
+    mkdir "$undir"
+    cd "$undir"
+fi
+
+# Determine screen resolution to fetch photos in the correct size
+size=$(xdpyinfo | grep dimensions | awk '{print $2}')
+
+# Fetch the specified number of random photos matching the given keyword from Unsplash
+# Sleep interval is necessary for Unsplash randomizer
+i=1
+while [ $i -le "$count" ]
+do
+    wget https://source.unsplash.com/$size/?"$keyword" -O $i-"$keyword".jpg
+    i=$((i + 1))
+    sleep 3
+done
+
+# Generate an animated GIF using the fetched photos
+convert -delay 300 -loop 0 *.jpg "$keyword"-inspiration.gif
+
+# Open the animated GIF in the default image viewer
+xdg-open "$keyword"-inspiration.gif
+ 

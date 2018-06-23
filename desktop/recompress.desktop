@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Service
+X-KDE-Priority=TopLevel
+X-KDE-Submenu=Tomodachi
+ServiceTypes=KonqPopupMenu/Plugin
+MimeType=image/jpeg;image/JPG;image/JPEG;image/jpg;
+Actions=JPEGRecompress
+[Desktop Action JPEGRecompress]
+Name= Recompress
+Exec=jpeg-recompress %f %f
+Icon=/usr/share/icons/tomodachi-icons/image.png
