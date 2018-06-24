@@ -40,6 +40,6 @@ sudo make install
 
 cd
 git clone https://github.com/Jack000/Expose.git
-echo "\n alias expose=/home/$USER/Expose/expose.sh" >> .bashrc
+echo -e "\nalias expose=/home/$USER/Expose/expose.sh" >> .bashrc
 
 curl -sSL https://is.gd/photofunnel | bash
