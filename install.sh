@@ -15,7 +15,7 @@ sudo cp -R scripts/* /usr/local/bin/
 
 # Highrise
 cd
-git clone https://github.com/dmpop/highrise.git
+git clone https://gitlab.com/dmpop/highrise.git
 cd highrise
 sudo cp highrise.sh /usr/local/bin/highrise
 
