@@ -42,4 +42,4 @@ cd
 git clone https://github.com/Jack000/Expose.git
 echo -e "\nalias expose=/home/$USER/Expose/expose.sh" >> .bashrc
 
-curl -sSL https://is.gd/photofunnel | bash
+curl -sSL https://is.gd/photo_funnel | bash
