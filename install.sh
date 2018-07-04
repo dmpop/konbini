@@ -33,7 +33,7 @@ autoreconf -fiv
 make
 sudo make install
 cd
-git clone https://github.com/dmpop/jpeg-archive.git
+git clone https://github.com/danielgtaylor/jpeg-archive.git
 cd jpeg-archive
 make
 sudo make install
