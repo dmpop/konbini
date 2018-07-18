@@ -3,6 +3,12 @@
 # Author: Dmitri Popov, dmpop@linux.com
 # License: GPLv3 https://www.gnu.org/licenses/gpl-3.0.txt
 
+if [ -z "$1" ]; then
+    echo "ERROR: Required parameter is missing."
+    echo "Please specify file extension, e.g., $0 jpeg"
+    exit 1
+    fi
+
 CONFIG="$HOME/.ai"
 
 if [ ! -f "$CONFIG" ]; then
@@ -14,37 +20,29 @@ if [ ! -f "$CONFIG" ]; then
 fi
 source "$CONFIG"
 
-f=$(yad --center --text-align=center --title="Add Photos" --button=gtk-cancel:0 \
-	--button="Continue":0 --borders=15 --width=250 --height=150 \
-	--text='<big>\nDrop JPEG files here.\nPress the <b>Continue</b> button.</big>' \
-	--dnd | sed 's/^.......//')
+check=$(wget -q --spider https://api.darksky.net/)
+if [ -z $check ]; then
+    for photo in *."$1";
+    do
+	lat=$(exiftool "$photo" -gpslatitude -n | cut -d":" -f2 | tr -d " ")
+	lon=$(exiftool "$photo" -gpslongitude -n | cut -d":" -f2 | tr -d " ")
+	if [ -z "$lat" ] && [ -z "$lon"]; then
+	    echo "The photo doesn't seem to be geotagged."
+	    exit 1
+	fi
+        t=$(exiftool -d %Y-%m-%d -DateTimeOriginal "$photo" | cut -d":" -f2 | tr -d " " | xargs -I dt date --date=dt +"%s")
+        camera=$(exiftool -Model "$photo" | cut -d":" -f2 | tr -d " ")
+        lens=$(exiftool -LensID "$photo" | cut -d":" -f2)
+	echo "https://api.darksky.net/forecast/"$api_key"/"$lat","$lon","$t"?units=si&exclude=currently,hourly,flags"
+        curl "https://api.darksky.net/forecast/"$api_key"/"$lat","$lon","$t"?units=si&exclude=currently,hourly,flags" > $json
+        w_sum=$(jq '.daily | .data | .[0] | .summary' $json | tr -d '"')
+        w_temp=$(jq '.daily | .data | .[0] | .temperatureHigh' $json | tr -d '"')
+        exiftool -overwrite_original -copyright="$copyright" -comment="$camera, $lens, $w_temp°C, $w_sum" "$photo"
+    done
     
-    check=$(wget -q --spider https://api.darksky.net/)
-    if [ -z $check ]; then
-        while IFS= read -r photo
-        do
-	    lat=$(exiftool "$photo" -gpslatitude -n | cut -d":" -f2 | tr -d " ")
-	    lon=$(exiftool "$photo" -gpslongitude -n | cut -d":" -f2 | tr -d " ")
-	    if [ -z "$lat" ] && [ -z "$lon"]; then
-		echo "The photo doesn't seem to be geotagged."
-		exit 1
-		fi
-            t=$(exiftool -d %Y-%m-%d -DateTimeOriginal "$photo" | cut -d":" -f2 | tr -d " " | xargs -I dt date --date=dt +"%s")
-            camera=$(exiftool -Model "$photo" | cut -d":" -f2 | tr -d " ")
-            lens=$(exiftool -LensID "$photo" | cut -d":" -f2)
-	    echo "https://api.darksky.net/forecast/"$api_key"/"$lat","$lon","$t"?units=si&exclude=currently,hourly,flags"
-            curl "https://api.darksky.net/forecast/"$api_key"/"$lat","$lon","$t"?units=si&exclude=currently,hourly,flags" > $json
-            w_sum=$(jq '.daily | .data | .[0] | .summary' $json | tr -d '"')
-            w_temp=$(jq '.daily | .data | .[0] | .temperatureHigh' $json | tr -d '"')
-            exiftool -overwrite_original -copyright="$copyright" -comment="$camera, $lens, $w_temp°C, $w_sum" "$photo"
-        done < <(printf '%s\n' "$f")
-    
-#    rm $json
-    yad --skip-taskbar --button=gtk-close:0 --center \
-	--text="<big>All done. Bye!</big>"
+     rm $json
+    notify-send "All done. Bye!" -i info
 else
-    yad --skip-taskbar --undecorated --borders=75 \
-	--timeout=3 --no-buttons --center \
-	--text="<big>Nothing to do. Bye!</big>"
+    notify-send "Dark Sky API is not reachable." -i warning
     exit 1
 fi
