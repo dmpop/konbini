@@ -28,7 +28,6 @@ if [ -z $check ]; then
 	lon=$(exiftool "$photo" -gpslongitude -n | cut -d":" -f2 | tr -d " ")
 	if [ -z "$lat" ] && [ -z "$lon"]; then
 	    echo "The photo doesn't seem to be geotagged."
-	    exit 1
 	fi
         t=$(exiftool -d %Y-%m-%d -DateTimeOriginal "$photo" | cut -d":" -f2 | tr -d " " | xargs -I dt date --date=dt +"%s")
         camera=$(exiftool -Model "$photo" | cut -d":" -f2 | tr -d " ")
@@ -43,6 +42,6 @@ if [ -z $check ]; then
      rm $json
     notify-send "All done. Bye!" -i info
 else
-    notify-send "Dark Sky API is not reachable." -i warning
+    notify-send "Dark Sky API is not reachable." -i info
     exit 1
 fi
