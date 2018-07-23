@@ -11,6 +11,7 @@ A set of Bash shell scripts and desktop files that add useful context actions to
 - *Unbash* is a script for fetching Unsplash photos matching the specified keyword. Run using the `unbash -c [NUMBER] -k [KEYWORD]` command.
 - *Geotag by City* geotags photos. Right-click on the desired photo, choose **Konbini → Geotag by City**.
 - *Show on OpenStreetMap* shows the position of the specified geotagged photo on the OpenStreetMap. Right-click on the desired photo, choose **Konbini → Show on OpenStreetMap**.
+- *Show EXIF Comment* displays the contents of the *Comment* field in EXIF metadata.  Right-click on the desired photo, choose **Konbini → Show EXIF Comment**.
 - *Resize*, a tool for resizing images using ImageMagick. Right-click on the desired photo, choose **Konbini → Resize**.
 - *Rename (Lower Case)* renames photos using the jhead tool and change the file extension to lower case. The tool renames photos using the *YYYYMMDD-hhmmss* format (e.g., *19701101-115530*). Right-click on the desired photo, choose **Konbini → Rename using EXIF Datetime (Lower Case)**.
 - *Rename (Upper Case)* renames photos using the jhead tool and change the file extension to upper case. The tool renames photos using the *YYYYMMDD-hhmmss* format (e.g., *19701101-115530*). Right-click on the desired photo, choose **Konbini → Rename using EXIF Datetime (Upper Case)**.

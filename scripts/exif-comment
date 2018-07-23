@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+comment=$(exiftool -Comment "$1" | cut -d":" -f2 | sed -e 's/^[[:space:]]*//')
+kdialog --msgbox "$comment" 
