@@ -16,6 +16,7 @@ A set of Bash shell scripts and desktop files that add useful context actions to
 - *Rename (Lower Case)* renames photos using the jhead tool and change the file extension to lower case. The tool renames photos using the *YYYYMMDD-hhmmss* format (e.g., *19701101-115530*). Right-click on the desired photo, choose **Konbini → Rename using EXIF Datetime (Lower Case)**.
 - *Rename (Upper Case)* renames photos using the jhead tool and change the file extension to upper case. The tool renames photos using the *YYYYMMDD-hhmmss* format (e.g., *19701101-115530*). Right-click on the desired photo, choose **Konbini → Rename using EXIF Datetime (Upper Case)**.
 - *Recompress* recompresses photos using the jpeg-recompress tool.
+- *RAW to JPG* converts currently selected RAW file to the JPG format. Right-click on the desired photo, choose **Konbini → RAW to JPG**.
 - [Expose](https://github.com/Jack000/Expose) is a tool for generating static photo galleries. Switch to a directory contaning photos you want to publish and run the `expose` command.
 
 ## Installation

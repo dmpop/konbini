@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Service
+X-KDE-Priority=TopLevel
+X-KDE-Submenu=Konbini
+ServiceTypes=KonqPopupMenu/Plugin
+Actions=ConvertRAW
+[Desktop Action ConvertRAW]
+Name=RAW to JPG
+Exec=/usr/local/bin/craw %F
+Icon=/usr/share/icons/konbini-icons/zap.png 

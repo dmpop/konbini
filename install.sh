@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-sudo zypper install -y git jhead xdpyinfo intltool gtk2-devel nasm libtool xclip bc jq ImageMagick ffmpeg hugin exiftool libnotify-tools
+sudo zypper install -y git jhead dcraw xdpyinfo intltool gtk2-devel nasm libtool xclip bc jq ImageMagick ffmpeg hugin exiftool libnotify-tools
 sudo zypper install -y -t pattern devel_basis
 
 sudo mkdir -p /usr/share/kservices5/ServiceMenus
