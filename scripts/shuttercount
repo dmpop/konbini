@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+imagenumber=$(exiftool -ImageNumber $@ | cut -d":" -f2 | tr -d " ")
+if [ -z "$imagenumber" ]; then
+    imagenumber="N/A"
+fi
+imagecount=$(exiftool -ImageCount $@ | cut -d":" -f2 | tr -d " ")
+if [ -z "$imagecount" ]; then
+    imagecount="N/A"
+fi
+shuttecount=$(exiftool -ShutterCount $@ | cut -d":" -f2 | tr -d " ")
+if [ -z "$shuttercount" ]; then
+    shuttercount="N/A"
+fi
+yad --skip-taskbar --button=gtk-close:0 --center \
+    --text="Image number:\t$imagenumber \nImage count:\t\t$imagecount\nShuttercount:\t\t$shuttercount"

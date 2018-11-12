@@ -17,8 +17,21 @@ A set of Bash shell scripts and desktop files that add useful context actions to
 - *Rename (Upper Case)* renames photos using the jhead tool and change the file extension to upper case. The tool renames photos using the *YYYYMMDD-hhmmss* format (e.g., *19701101-115530*). Right-click on the desired photo, choose **Konbini → Rename using EXIF Datetime (Upper Case)**.
 - *Recompress* recompresses photos using the jpeg-recompress tool.
 - *RAW to JPG* converts currently selected RAW file to the JPG format. Right-click on the desired photo, choose **Konbini → RAW to JPG**.
+- *Shutter Count* obtains and displays image count, image number, and shutter count values from the EXIF metadata. These values give an approximate number of shutter actuations. Right-click on the desired photo, choose **Konbini → Shutter/Image Count**.
 - [Expose](https://github.com/Jack000/Expose) is a tool for generating static photo galleries. Switch to a directory contaning photos you want to publish and run the `expose` command.
 
 ## Installation
 
 Run the `curl -sSL https://is.gd/konbini | bash` command.
+
+## Acknowledgements
+
+Icons curtesy of [Feather icons](https://feathericons.com/).
+
+## Author
+
+Dmitri Popov [dmpop@linux.com](mailto:dmpop@linux.com)
+
+## License
+
+The [GNU General Public License version 3](http://www.gnu.org/licenses/gpl-3.0.en.html)

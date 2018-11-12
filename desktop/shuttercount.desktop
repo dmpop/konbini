@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Service
+X-KDE-Priority=TopLevel
+X-KDE-Submenu=Konbini
+ServiceTypes=KonqPopupMenu/Plugin
+MimeType=image/JPEG;image/jpeg;image/JPG;image/jpg;
+Actions=Rename
+[Desktop Action Rename]
+Name=Shutter/Image Count
+Exec=/usr/local/bin/shuttercount %f
+Icon=/usr/share/icons/konbini-icons/aperture.png
