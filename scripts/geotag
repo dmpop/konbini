@@ -1,10 +1,17 @@
 #!/usr/bin/env bash
+
+# Author: Dmitri Popov, dmpop@linux.com
+# License: GPLv3 https://www.gnu.org/licenses/gpl-3.0.txt
  
-wget -q --spider nominatim.openstreetmap.org
-if [ $? -ne 0 ]; then
-notify-send "Nominatim is not reachable. Check your Internet connection."
-exit 1
-fi
+# Check whether the Photon service is reachable
+check=$(wget -q --spider http://photon.komoot.de/)
+if [ ! -z "$check" ]; then
+    echo
+    echo "--------------------------------------------------------"
+    echo "Photon is not reachable. Check your Internet connection."
+    echo "--------------------------------------------------------"
+    exit 1
+    fi
  
 input=$(kdialog --inputbox 'City:' --title 'Enter city name')
 if [ $? -ne 0 ]; then
@@ -12,18 +19,20 @@ if [ $? -ne 0 ]; then
 fi
 city=${input// /%20}
  
-lat=$(curl "http://nominatim.openstreetmap.org/search?city=$1&country=$2&format=json" | jq '.[0] | .lat' | tr -d '"')
-if (( $(echo "$lat > 0" |bc -l) )); then
-  latref="N"
-else
-  latref="S"
-fi
-
-lon=$(curl "http://nominatim.openstreetmap.org/search?city=$1&country=$2&format=json" | jq '.[0] | .lon' | tr -d '"')
-if (( $(echo "$lat > 0" |bc -l) )); then
-  lonref="E"
-else
-  lonref="W"
+# Obtain latitude and longitude for the specified location
+    lat=$(curl -k "photon.komoot.de/api/?q=$city" | jq '.features | .[0] | .geometry | .coordinates | .[1]')
+    if (( $(echo "$lat > 0" |bc -l) )); then
+        latref="N"
+        else
+        latref="S"
+    fi
+    lon=$(curl -k "photon.komoot.de/api/?q=$city" | jq '.features | .[0] | .geometry | .coordinates | .[0]')
+    
+    if (( $(echo "$lon > 0" |bc -l) )); then
+        lonref="E"
+        else
+        lonref="W"
+    fi
 fi
 
 exiftool -overwrite_original -GPSLatitude=$lat -GPSLatitudeRef=$latref -GPSLongitude=$lon -GPSLongitudeRef=$lonref "$@"

@@ -1,3 +1,7 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
+# Author: Dmitri Popov, dmpop@linux.com
+# License: GPLv3 https://www.gnu.org/licenses/gpl-3.0.txt
+
 exiftool '-filename<CreateDate' -d %Y%m%d-%H%M%S%%-c.%%le "$@"
 notify-send "Action completed" -i info 

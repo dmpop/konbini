@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# Author: Dmitri Popov, dmpop@linux.com
+# License: GPLv3 https://www.gnu.org/licenses/gpl-3.0.txt
+
 sudo zypper install -y git jhead dcraw xdpyinfo intltool gtk2-devel nasm libtool xclip bc jq ImageMagick ffmpeg hugin exiftool libnotify-tools
 sudo zypper install -y -t pattern devel_basis
 

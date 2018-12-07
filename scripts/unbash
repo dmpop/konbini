@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# Author: Dmitri Popov, dmpop@linux.com
+# License: GPLv3 https://www.gnu.org/licenses/gpl-3.0.txt
+
 # User-defined parameters
 undir="$HOME/unbash"
 default_keyword="monkey"

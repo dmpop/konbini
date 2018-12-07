@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+
+# Author: Dmitri Popov, dmpop@linux.com
+# License: GPLv3 https://www.gnu.org/licenses/gpl-3.0.txt
+
+CONFIG="$HOME/ai.cfg"
+
+if [ ! -f "$CONFIG" ]; then
+    copyright=$(yad --center --width=500 --form --field="Copyright notice:" | cut -d"|" -f1)
+    echo 'copyright="'$copyright'"' >> "$CONFIG"
+    echo 'json="$HOME/weather.json"' >> "$CONFIG"
+    api_key=$(yad --center --width=500 --form --field="Dark Sky API key:" | cut -d"|" -f1)
+    echo 'api_key="'$api_key'"' >> "$CONFIG"
+fi
+source "$CONFIG"
+
+check=$(wget -q --spider https://api.darksky.net/)
+if [ -z $check ]; then
+    lat=$(exiftool "$@" -gpslatitude -n | cut -d":" -f2 | tr -d " ")
+    lon=$(exiftool "$@" -gpslongitude -n | cut -d":" -f2 | tr -d " ")
+    if [ ! -z "$lat" ] && [ ! -z "$lon" ]; then
+	t=$(exiftool -d %Y-%m-%d -DateTimeOriginal "$@" | cut -d":" -f2 | tr -d " " | xargs -I dt date --date=dt +"%s")
+	camera=$(exiftool -Model "$@" | cut -d":" -f2 | tr -d " ")
+	lens=$(exiftool -LensID "$@" | cut -d":" -f2)
+	curl "https://api.darksky.net/forecast/"$api_key"/"$lat","$lon","$t"?units=si&exclude=currently,hourly,flags" > $json
+	w_sum=$(jq '.daily | .data | .[0] | .summary' $json | tr -d '"')
+	w_temp=$(jq '.daily | .data | .[0] | .temperatureHigh' $json | tr -d '"')
+	exiftool -overwrite_original -copyright="$copyright" -comment="$camera $lens $w_temp°C $w_sum" "$@"
+    else
+	notify-send "$@ is not geotagged"
+    fi
+    if [ -d "$json" ]; then
+	rm "$json"
+    fi
+    notify-send "All done. Bye!"
+else
+    notify-send "Dark Sky API is not reachable."
+    exit 1
+fi
