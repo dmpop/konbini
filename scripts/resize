@@ -8,10 +8,7 @@ if [ ! -x "$(command -v convert)" ]; then
     exit 1
 fi
 
-dialog=$(yad --title "Bash Resize" --form --field="Dimension in px" --field="Quality in %")
-
-size=$(echo $dialog | awk 'BEGIN {FS="|" } { print $1 }')
-quality=$(echo $dialog | awk 'BEGIN {FS="|" } { print $2 }')
-size+=">"
+size=$(kdialog --inputbox 'Size in px:' --title 'Resize')
+quality=$(kdialog --inputbox 'Quality in %:' --title 'Quality')
 convert "$@" -resize "$size>" -quality "$quality%" "$@"
 notify-send "Action completed" -i info 

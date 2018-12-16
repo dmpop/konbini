@@ -6,10 +6,10 @@
 CONFIG="$HOME/ai.cfg"
 
 if [ ! -f "$CONFIG" ]; then
-    copyright=$(yad --center --width=500 --form --field="Copyright notice:" | cut -d"|" -f1)
+    copyright=$(kdialog --inputbox 'Copyright notice:' --title 'Copyright')
     echo 'copyright="'$copyright'"' >> "$CONFIG"
     echo 'json="$HOME/weather.json"' >> "$CONFIG"
-    api_key=$(yad --center --width=500 --form --field="Dark Sky API key:" | cut -d"|" -f1)
+    api_key=$(kdialog --inputbox 'Dark Sky API key:' --title 'Dark Sky API Key')
     echo 'api_key="'$api_key'"' >> "$CONFIG"
 fi
 source "$CONFIG"

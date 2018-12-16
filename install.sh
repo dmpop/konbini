@@ -3,8 +3,25 @@
 # Author: Dmitri Popov, dmpop@linux.com
 # License: GPLv3 https://www.gnu.org/licenses/gpl-3.0.txt
 
-sudo zypper install -y git jhead dcraw xdpyinfo intltool gtk2-devel nasm libtool xclip bc jq ImageMagick ffmpeg hugin exiftool libnotify-tools
-sudo zypper install -y -t pattern devel_basis
+dist=$(lsb_release -i | cut -f 2-)
+
+if [ "$dist" == "openSUSE" ]; then
+    sudo zypper up
+    sudo zypper install -y git jhead dcraw xdpyinfo intltool \
+	 nasm libtool xclip bc jq ImageMagick ffmpeg \
+	 hugin exiftool libnotify-tools
+    sudo zypper install -y -t pattern devel_basis
+elif [ "$dist" == "Ubuntu" ]; then
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get -y install git jhead dcraw xdpyinfo intltool \
+	 nasm libtool xclip bc jq imagemagick ffmpeg \
+	 hugin libimage-exiftool-perl libnotify-bin
+    sudo apt-get install build-essential
+else
+    echo "Unsupported operating system."
+    exit 1
+fi
 
 sudo mkdir -p /usr/share/kservices5/ServiceMenus
 sudo mkdir -p /usr/share/icons/konbini-icons
@@ -41,8 +58,7 @@ cd jpeg-archive
 make
 sudo make install
 
-cd
-git clone https://github.com/Jack000/Expose.git
-echo -e "\nalias expose=/home/$USER/Expose/expose.sh" >> .bashrc
-
-curl -sSL https://is.gd/photo_funnel | bash
+echo
+echo "========="
+echo "All done!"
+echo "========="
