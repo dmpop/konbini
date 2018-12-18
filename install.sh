@@ -11,7 +11,7 @@ if [ "$dist" == "openSUSE" ]; then
 	 nasm libtool xclip bc jq ImageMagick ffmpeg \
 	 hugin exiftool libnotify-tools
     sudo zypper install -y -t pattern devel_basis
-elif [ "$dist" == "Ubuntu" ]; then
+elif [ "$dist" == "Ubuntu" ] || [ "$dist" == "Debian" ]; then
     sudo apt-get update
     sudo apt-get upgrade
     sudo apt-get -y install git jhead dcraw xdpyinfo intltool \
