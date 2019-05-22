@@ -46,7 +46,9 @@ sudo chmod 755 /usr/local/bin/*
 
 # jpeg-archive
 cd
-git clone https://github.com/mozilla/mozjpeg.git
+wget https://github.com/mozilla/mozjpeg/archive/v3.3.1.tar.gz
+tar xzfv v3.3.1.tar.gz
+cd mozjpeg-3.3.1
 cd mozjpeg
 autoreconf -fiv
 ./configure --with-jpeg8
