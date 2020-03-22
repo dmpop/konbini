@@ -1,0 +1,5 @@
+#!/bin/bash
+
+f=`echo $NAUTILUS_SCRIPT_SELECTED_URIS | sed 's@file://@@g'`
+
+jpeg-recompress $f $f

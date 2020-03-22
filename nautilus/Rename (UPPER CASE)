@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+# Author: Dmitri Popov, dmpop@linux.com
+# License: GPLv3 https://www.gnu.org/licenses/gpl-3.0.txt
+
+f=`echo $NAUTILUS_SCRIPT_SELECTED_URIS | sed 's@file://@@g'`
+
+exiftool '-filename<CreateDate' -d %Y%m%d-%H%M%S%%-c.%%ue "$f"
+notify-send "Action completed" -i info 
