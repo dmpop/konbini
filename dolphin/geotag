@@ -33,7 +33,6 @@ city=${input// /%20}
         else
         lonref="W"
     fi
-fi
 
 exiftool -overwrite_original -GPSLatitude=$lat -GPSLatitudeRef=$latref -GPSLongitude=$lon -GPSLongitudeRef=$lonref "$@"
 
