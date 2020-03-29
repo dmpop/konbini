@@ -7,5 +7,5 @@ MimeType=image/x-sony-arw;image/x-canon-cr2;image/x-canon-crw;image/x-adobe-dng;
 Actions=ConvertRAW
 [Desktop Action ConvertRAW]
 Name=RAW to JPG
-Exec=/usr/local/bin/craw %F
+Exec=craw %F
 Icon=/usr/share/icons/konbini-icons/zap.png 

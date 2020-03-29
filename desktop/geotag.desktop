@@ -7,5 +7,5 @@ MimeType=image/jpeg;image/JPG;image/JPEG;image/jpg;
 Actions=Geotag
 [Desktop Action Geotag]
 Name= Geotag by City
-Exec=/usr/local/bin/geotag %f
-Icon=/usr/share/icons/konbini-icons/map.png
+Exec=geotag %f
+Icon=/usr/share/icons/konbini-icons/map-pin.png

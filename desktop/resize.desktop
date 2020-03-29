@@ -7,5 +7,5 @@ MimeType=image/*;
 Actions=Resize
 [Desktop Action Resize]
 Name=Resize Image
-Exec=/usr/local/bin/resize %f
+Exec=resize %f
 Icon=/usr/share/icons/konbini-icons/crop.png

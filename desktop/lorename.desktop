@@ -7,5 +7,5 @@ MimeType=image/JPEG;image/jpeg;image/JPG;image/jpg;
 Actions=Rename
 [Desktop Action Rename]
 Name=Rename using EXIF Datetime (Lower Case)
-Exec=/usr/local/bin/lorename %F
+Exec=lorename %F
 Icon=/usr/share/icons/konbini-icons/arrow-down.png

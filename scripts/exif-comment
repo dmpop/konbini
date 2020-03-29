@@ -1,7 +1,0 @@
-#!/usr/bin/env bash
-
-# Author: Dmitri Popov, dmpop@linux.com
-# License: GPLv3 https://www.gnu.org/licenses/gpl-3.0.txt
-
-comment=$(exiftool -Comment "$@" | cut -d":" -f2 | sed -e 's/^[[:space:]]*//')
-kdialog --msgbox "$comment" 

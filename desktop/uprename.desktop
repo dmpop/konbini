@@ -7,5 +7,5 @@ MimeType=image/JPEG;image/jpeg;image/JPG;image/jpg;
 Actions=Rename
 [Desktop Action Rename]
 Name=Rename using EXIF Datetime (Upper Case)
-Exec=/usr/local/bin/uprename %F
+Exec=uprename %F
 Icon=/usr/share/icons/konbini-icons/arrow-up.png
