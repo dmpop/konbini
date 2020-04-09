@@ -1,0 +1,13 @@
+[Desktop Entry]
+Type=Service
+X-KDE-Priority=TopLevel
+X-KDE-Submenu=Konbini
+ServiceTypes=KonqPopupMenu/Plugin
+MimeType=image/jpeg;image/JPG;image/JPEG;image/jpg;
+Actions=Georef
+Name[en_US]=geotag-by-ref.desktop
+
+[Desktop Action Geotag]
+Name=Geotag by Reference Photo
+Exec=geotag-by-ref %f
+Icon=/usr/share/icons/konbini-icons/compass.png

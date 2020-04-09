@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+
+# Author: Dmitri Popov, dmpop@linux.com
+# License: GPLv3 https://www.gnu.org/licenses/gpl-3.0.txt
+
+ref=`echo $NAUTILUS_SCRIPT_SELECTED_URIS | sed 's@file://@@g'`
+lat=$(exiftool -gpslatitude -n "$ref" | cut -d":" -f2 | tr -d " ")
+lon=$(exiftool -gpslongitude -n "$ref" | cut -d":" -f2 | tr -d " ")
+if [ -z "$lat" ] || [ -z "$lon" ]; then
+    notify-send "Geographical coordinates are missing."
+    exit 1
+else
+    notify-send $lat $lon
+fi
+if (( $(echo "$lat > 0" |bc -l) )); then
+    latref="N"
+else
+    latref="S"
+fi
+if (( $(echo "$lon > 0" |bc -l) )); then
+    lonref="E"
+else
+    lonref="W"
+fi
+f=$(yad --center --text-align=center --title="Photos to geotag" --button=gtk-cancel:0 \
+    --button="Geotag":0 --borders=15 --width=250 --height=150 \
+    --text='<big>\nDrop photos you want to geotag  here.\nPress the <b>Geotag</b> button.</big>' \
+    --dnd | sed 's/^.......//')
+array=("$f")
+for file in ${array[*]}
+do
+    exiftool -overwrite_original -GPSLatitude=$lat -GPSLatitudeRef=$latref -GPSLongitude=$lon -GPSLongitudeRef=$lonref "$file"
+done
+notify-send "All done. Bye!"
