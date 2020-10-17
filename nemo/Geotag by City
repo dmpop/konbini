@@ -2,7 +2,7 @@
 
 # Author: Dmitri Popov, dmpop@linux.com
 # License: GPLv3 https://www.gnu.org/licenses/gpl-3.0.txt
- 
+
 # Check whether the Photon service is reachable
 check=$(wget -q --spider http://photon.komoot.de/)
 if [ ! -z "$check" ]; then
@@ -11,30 +11,30 @@ if [ ! -z "$check" ]; then
     echo "Photon is not reachable. Check your Internet connection."
     echo "--------------------------------------------------------"
     exit 1
-    fi
- 
-f=`echo $NAUTILUS_SCRIPT_SELECTED_URIS | sed 's@file://@@g'`
+fi
+
+f=$(echo $NEMO_SCRIPT_SELECTED_URIS | sed 's@file://@@g')
 
 city=$(zenity --entry --text 'City' --title 'City')
 if [ $? -ne 0 ]; then
-  exit 1
+    exit 1
 fi
- 
+
 # Obtain latitude and longitude for the specified location
-    lat=$(curl -k "photon.komoot.de/api/?q=$city" | jq '.features | .[0] | .geometry | .coordinates | .[1]')
-    if (( $(echo "$lat > 0" |bc -l) )); then
-        latref="N"
-        else
-        latref="S"
-    fi
-    lon=$(curl -k "photon.komoot.de/api/?q=$city" | jq '.features | .[0] | .geometry | .coordinates | .[0]')
-    
-    if (( $(echo "$lon > 0" |bc -l) )); then
-        lonref="E"
-        else
-        lonref="W"
-    fi
+lat=$(curl -k "photon.komoot.de/api/?q=$city" | jq '.features | .[0] | .geometry | .coordinates | .[1]')
+if (($(echo "$lat > 0" | bc -l))); then
+    latref="N"
+else
+    latref="S"
+fi
+lon=$(curl -k "photon.komoot.de/api/?q=$city" | jq '.features | .[0] | .geometry | .coordinates | .[0]')
+
+if (($(echo "$lon > 0" | bc -l))); then
+    lonref="E"
+else
+    lonref="W"
+fi
 
 exiftool -overwrite_original -GPSLatitude=$lat -GPSLatitudeRef=$latref -GPSLongitude=$lon -GPSLongitudeRef=$lonref "$f"
 
-notify-send "Action completed" -i info 
+notify-send "Action completed" -i info

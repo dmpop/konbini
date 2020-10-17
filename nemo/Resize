@@ -3,7 +3,7 @@
 # Author: Dmitri Popov, dmpop@linux.com
 # License: GPLv3 https://www.gnu.org/licenses/gpl-3.0.txt
 
-f=`echo $NAUTILUS_SCRIPT_SELECTED_URIS | sed 's@file://@@g'`
+f=$(echo $NEMO_SCRIPT_SELECTED_URIS | sed 's@file://@@g')
 
 if [ ! -x "$(command -v convert)" ]; then
     notify-send "Install ImageMagick." -i info

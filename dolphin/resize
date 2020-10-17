@@ -11,4 +11,4 @@ fi
 size=$(kdialog --inputbox 'Size in px:' --title 'Resize')
 quality=$(kdialog --inputbox 'Quality in %:' --title 'Quality')
 convert "$@" -resize "$size>" -quality "$quality%" "$@"
-notify-send "Action completed" -i info 
+notify-send "Action completed" -i info
