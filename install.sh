@@ -8,9 +8,7 @@ git clone https://gitlab.com/dmpop/konbini.git
 cd konbini
 mv jpeg-recompress $HOME/bin
 
-dist=$(lsb_release -i | cut -f 2)
-
-if [ "$dist" == "openSUSE" ]; then
+if [ ! -x "$(command -v zypper)" ]; then
     sudo zypper up
     sudo zypper install -y git jhead xclip bc jq ImageMagick exiftool libnotify-tools
     sudo mkdir -p /usr/share/kservices5/ServiceMenus
@@ -18,7 +16,7 @@ if [ "$dist" == "openSUSE" ]; then
     sudo cp -R icons/*.png /usr/share/icons/konbini-icons/
     sudo cp -R desktop/* /usr/share/kservices5/ServiceMenus/
     cp -R dolphin/* $HOME/bin/
-elif [ "$dist" == "Linuxmint" ]; then
+elif [ ! -x "$(command -v apt)" ]; then
     sudo apt-get update
     sudo apt-get upgrade
     sudo apt-get -y install git jhead bc jq imagemagick libimage-exiftool-perl libnotify-bin
