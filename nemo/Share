@@ -7,4 +7,7 @@ f=$(echo $NEMO_SCRIPT_SELECTED_URIS | sed 's@file://@@g')
 
 d=$(mktemp -d)
 cp "$f" "$d"
-python3 -m http.server 8000 -d "$d"
+python3 -m http.server 8000 -d "$d" & disown
+pid=$(echo $!)
+sleep 300
+kill -9 $pid

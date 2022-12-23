@@ -11,7 +11,7 @@ A set of Bash shell scripts and desktop files that add useful context actions fo
 - **RAW to JPG** converts currently selected RAW file to the JPG format.
 - **Remove EXIF** removes all EXIF metadata from the currently selected photo.
 - **Shutter count** extracts the shutter count from the currently selected JPEG file.
-- **Share** shares the currently selected image on port 8000 using Python's built-in web server.
+- **Share** shares the currently selected image on port 8000 using Python's built-in web server. Sharing disables automatically after 5 minutes.
 
 ## Installation
 
