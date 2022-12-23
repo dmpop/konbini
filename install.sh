@@ -15,13 +15,15 @@ if [ ! -x "$(command -v zypper)" ]; then
     sudo mkdir -p /usr/share/icons/konbini-icons
     sudo cp -R icons/*.png /usr/share/icons/konbini-icons/
     sudo cp -R desktop/* /usr/share/kservices5/ServiceMenus/
+    chmod +x dolphin/*
     cp -R dolphin/* $HOME/bin/
 elif [ ! -x "$(command -v apt)" ]; then
     sudo apt-get update
     sudo apt-get upgrade
     sudo apt-get -y install git jhead bc jq imagemagick libimage-exiftool-perl libnotify-bin
+    chmod +x nemo/*
     mkdir -p $HOME/.local/share/nemo/scripts/Konbini
-    cp nemo/* $HOME/.local/share/nemo/scripts/Konbini
+    cp -R nemo/* $HOME/.local/share/nemo/scripts/Konbini
 else
     echo "Unsupported operating system."
     exit 1

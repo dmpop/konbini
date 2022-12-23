@@ -6,6 +6,6 @@ ServiceTypes=KonqPopupMenu/Plugin
 MimeType=image/JPEG;image/jpeg;image/JPG;image/jpg;
 Actions=Rename
 [Desktop Action Rename]
-Name=Rename using EXIF Datetime (Upper Case)
+Name=Rename (UPPER CASE)
 Exec=uprename %F
 Icon=/usr/share/icons/konbini-icons/arrow-up.png

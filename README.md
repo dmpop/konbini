@@ -1,16 +1,16 @@
 # Konbini :convenience_store: コンビニコンビニ
 
-A set of Bash shell scripts and desktop files that add useful context actions for the Dolphin and Nemo file browsers. The accompanying installer Bash shell script automatically installs and configures all the required components. Konbini includes the following actions and scripts:
+A set of Bash shell scripts and desktop files that add useful context actions for the Dolphin and Nemo file browsers. The accompanying installer Bash shell script automatically installs and configures all the required components. To access Konbini commands, right-click on the desired photo, and choose **Scripts -> Konbini** (Nemo) or **Konbini** (Dolphin). Konbini includes the following actions and scripts:
 
-- **Geotag by City** geotags the selected photo by obtaining and writing geographical coordinates of the specified city. Right-click on the desired photo, choose **Konbini → Geotag by City**.
-- **Geotag by Reference Photo** uses geographical coordinates pulled from a specified file to geotag selected photos. Right-click on the desired geotagged photo, choose **Konbini → Geotag by Reference Photo**.
-- **Resize**, a tool for resizing images using ImageMagick. Right-click on the desired photo, choose **Konbini → Resize**.
-- **Rename (Lower Case)** renames photos using the jhead tool and change the file extension to lowercase. The tool renames photos using the *YYYYMMDD-hhmmss* format (for example, *19701101-115530*). Right-click on the desired photo, choose **Konbini → Rename using EXIF Datetime (Lower Case)**.
-- **Rename (Upper Case)** renames photos using the jhead tool and change the file extension to uppercase. The tool renames photos using the *YYYYMMDD-hhmmss* format (for example, *19701101-115530*). Right-click on the desired photo, choose **Konbini → Rename using EXIF Datetime (Upper Case)**.
-- **Recompress** recompresses photos using the jpeg-recompress tool.
-- **RAW to JPG** converts currently selected RAW file to the JPG format. Right-click on the desired photo, choose **Konbini → RAW to JPG**.
-- **Remove EXIF** removes all EXIF metadata from the currently selected photo. Right-click on the desired photo, choose **Konbini → Remove EXIF**.
-- **Shutter count** extract the shutter count from the currently selected JPEG file. Right-click on the desired photo, choose **Konbini → Shutter count**.
+- **Geotag by city** geotags the selected photo by obtaining and writing geographical coordinates of the specified city.
+- **Show on map** shows the position of the currently selected geotagged photo on Openstreetmap.
+- **Resize** resized the currently selected image and reduces its quality.
+- **Rename (lower case)** renames photos using the jhead tool and change the file extension to lowercase. The tool renames photos using the _YYYYMMDD-hhmmss_ format (for example, _19701101-115530_).
+- **Rename (UPPER CASE)** renames photos using the jhead tool and change the file extension to uppercase. The tool renames photos using the _YYYYMMDD-hhmmss_ format (for example, _19701101-115530_).
+- **Recompress** recompresses photos using the _jpeg-recompress_ tool.
+- **RAW to JPG** converts currently selected RAW file to the JPG format.
+- **Remove EXIF** removes all EXIF metadata from the currently selected photo.
+- **Shutter count** extract the shutter count from the currently selected JPEG file.
 
 ## Installation
 

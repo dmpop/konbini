@@ -6,6 +6,6 @@ ServiceTypes=KonqPopupMenu/Plugin
 MimeType=image/jpeg;image/JPG;image/JPEG;image/jpg;
 Actions=RemoveEXIF
 [Desktop Action RemoveEXIF]
-Name= Remove EXIF
+Name=Remove EXIF
 Exec=exiftool -overwrite_original -all= %f
 Icon=/usr/share/icons/konbini-icons/delete.png

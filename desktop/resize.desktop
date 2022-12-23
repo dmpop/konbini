@@ -6,6 +6,6 @@ ServiceTypes=KonqPopupMenu/Plugin
 MimeType=image/*;
 Actions=Resize
 [Desktop Action Resize]
-Name=Resize Image
+Name=Resize
 Exec=resize %f
 Icon=/usr/share/icons/konbini-icons/crop.png

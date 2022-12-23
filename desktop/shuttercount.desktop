@@ -7,5 +7,5 @@ MimeType=image/JPEG;image/jpeg;image/JPG;image/jpg;
 Actions=ShutterCount
 [Desktop Action Resize]
 Name=Shutter count
-Exec=resize %f
-Icon=/usr/share/icons/konbini-icons/divide-circle.png
+Exec=shuttercount %f
+Icon=/usr/share/icons/konbini-icons/info.png
