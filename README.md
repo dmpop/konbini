@@ -26,7 +26,7 @@ Icons curtesy of [Feather icons](https://feathericons.com/).
 
 ## Author
 
-Dmitri Popov [dmpop@linux.com](mailto:dmpop@linux.com)
+Dmitri Popov [dmpop@tokyoma.de](mailto:dmpop@tokyoma.de)
 
 ## License
 
