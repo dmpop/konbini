@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+# Author: Dmitri Popov, dmpop@tokyoma.de
+# License: GPLv3 https://www.gnu.org/licenses/gpl-3.0.txt
+
+d=$(mktemp -d)
+cp "$@" "$d"
+python3 -m http.server 8000 -d "$d"
