@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Service
+X-KDE-Priority=TopLevel
+X-KDE-Submenu=Konbini
+ServiceTypes=KonqPopupMenu/Plugin
+MimeType=image/JPEG;image/jpeg;image/JPG;image/jpg;
+Actions=ShutterCount
+[Desktop Action Resize]
+Name=Shutter count
+Exec=resize %f
+Icon=/usr/share/icons/konbini-icons/divide-circle.png

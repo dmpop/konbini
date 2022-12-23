@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+
+# Author: Dmitri Popov, dmpop@linux.com
+# License: GPLv3 https://www.gnu.org/licenses/gpl-3.0.txt
+
+f=$(echo $NEMO_SCRIPT_SELECTED_URIS | sed 's@file://@@g')
+
+if [ ! -x "$(command -v exiftool)" ]; then
+    notify-send "Install ExifTool" -i info
+    exit 1
+fi
+
+c="$(exiftool -s3 -ShutterCount "$f")"
+if [[ $c -gt 0 ]]; then
+    notify-send "Shutter count: $c" -i info
+else
+    c="$(exiftool -s3 -ImageCount "$f")"
+    if [[ $c -gt 0 ]]; then
+        notify-send "Image count: $c" -i info
+    else
+        c="$(exiftool -s3 -ImageNumber "$f")"
+        if [[ $c -gt 0 ]]; then
+            notify-send "Image number: $c" -i info
+        else
+            notify-send "Unknown" -i info
+        fi
+    fi
+fi
