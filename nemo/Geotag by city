@@ -13,7 +13,7 @@ if [ ! -z "$check" ]; then
     exit 1
 fi
 
-f=$(echo $NEMO_SCRIPT_SELECTED_URIS | sed 's@file://@@g')
+f="$@"
 
 city=$(zenity --entry --text 'City' --title 'City')
 if [ $? -ne 0 ]; then
