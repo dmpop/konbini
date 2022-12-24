@@ -4,7 +4,7 @@
 # License: GPLv3 https://www.gnu.org/licenses/gpl-3.0.txt
 
 mkdir -p $HOME/bin
-git clone https://gitlab.com/dmpop/konbini.git
+git clone https://github.com/dmpop/konbini.git
 cd konbini
 mv jpeg-recompress $HOME/bin
 

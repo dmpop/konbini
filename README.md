@@ -15,7 +15,11 @@ A set of Bash shell scripts and desktop files that add useful context actions fo
 
 ## Installation
 
-Run the `curl -sSL https://is.gd/konbini | bash` command.
+Run the following command in the terminal:
+
+```
+curl -sSL https://raw.githubusercontent.com/dmpop/konbini/master/install.sh | bash
+```
 
 The [Linux Photography](https://gumroad.com/l/linux-photography) book provides detailed instructions on using and customizing Konbini. Get your copy at [Google Play Store](https://play.google.com/store/books/details/Dmitri_Popov_Linux_Photography?id=cO70CwAAQBAJ) or [Gumroad](https://gumroad.com/l/linux-photography).
 
