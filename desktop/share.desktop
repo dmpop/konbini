@@ -4,8 +4,14 @@ X-KDE-Priority=TopLevel
 X-KDE-Submenu=Konbini
 ServiceTypes=KonqPopupMenu/Plugin
 MimeType=image/*;
-Actions=Share
-[Desktop Action Share]
-Name=Share
-Exec=share %f
+Actions=ShareFile;ShareDir
+
+[Desktop Action ShareFile]
+Name=Share file
+Exec=sharef %f
 Icon=/usr/share/icons/konbini-icons/share.png
+
+[Desktop Action ShareDir]
+Name=Share folder
+Exec=shared
+Icon=/usr/share/icons/konbini-icons/folder.png
