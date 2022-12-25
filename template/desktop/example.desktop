@@ -1,11 +1,10 @@
 [Desktop Entry]
 Type=Service
 X-KDE-Priority=TopLevel
-X-KDE-Submenu=Konbini
+X-KDE-Submenu=🏪 Konbini
 ServiceTypes=KonqPopupMenu/Plugin
 MimeType=image/jpeg;image/JPG;image/JPEG;image/jpg;
 Actions=ActionName
 [Desktop Action ActionName]
-Name= Action Name
+Name=💡 Action Name
 Exec=/usr/local/bin/example.sh %f
-Icon=/usr/share/icons/konbini-icons/example.png

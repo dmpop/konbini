@@ -26,10 +26,6 @@ The [Linux Photography](https://gumroad.com/l/linux-photography) book provides d
 
 <img src="https://tokyoma.de/bookcovers/linux-photography.jpg" title="Linux Photography book" width="200"/>
 
-## Acknowledgements
-
-Icons curtesy of [Feather icons](https://feathericons.com/).
-
 ## Author
 
 Dmitri Popov [dmpop@tokyoma.de](mailto:dmpop@tokyoma.de)

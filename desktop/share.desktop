@@ -1,17 +1,15 @@
 [Desktop Entry]
 Type=Service
 X-KDE-Priority=TopLevel
-X-KDE-Submenu=Konbini
+X-KDE-Submenu=🏪 Konbini
 ServiceTypes=KonqPopupMenu/Plugin
 MimeType=image/*;
 Actions=ShareFile;ShareDir
 
 [Desktop Action ShareFile]
-Name=Share file
+Name=🌍 Share file
 Exec=sharef %f
-Icon=/usr/share/icons/konbini-icons/share.png
 
 [Desktop Action ShareDir]
-Name=Share folder
+Name=📂 Share folder
 Exec=shared
-Icon=/usr/share/icons/konbini-icons/folder.png

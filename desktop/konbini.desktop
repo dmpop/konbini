@@ -1,0 +1,39 @@
+[Desktop Entry]
+Type=Service
+X-KDE-Priority=TopLevel
+X-KDE-Submenu=🏪 Konbini
+ServiceTypes=KonqPopupMenu/Plugin
+MimeType=image/jpeg;image/JPG;image/JPEG;image/jpg;
+Actions=JPEGRecompress;Resize;Lorename;Uprename;RemoveEXIF;Geotag;ShowOSM;ShutterCount
+
+[Desktop Action JPEGRecompress]
+Name=🗜️ Recompress
+Exec=jpeg-recompress %f %f
+
+[Desktop Action Resize]
+Name=📐 Resize
+Exec=resize %f
+
+[Desktop Action Lorename]
+Name=🔽 Rename (lower case)
+Exec=lorename %F
+
+[Desktop Action Uprename]
+Name=🔼 Rename (UPPER CASE)
+Exec=uprename %F
+
+[Desktop Action RemoveEXIF]
+Name=🧹 Remove EXIF
+Exec=exiftool -overwrite_original -all= %f
+
+[Desktop Action Geotag]
+Name=🧭 Geotag by city
+Exec=geotag %f
+
+[Desktop Action ShowOSM]
+Name=📍 Show on map
+Exec=showosm %f
+
+[Desktop Action ShutterCount]
+Name=🧮 Shutter count
+Exec=shuttercount %f
