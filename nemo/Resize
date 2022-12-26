@@ -3,8 +3,6 @@
 # Author: Dmitri Popov, dmpop@tokyoma.de
 # License: GPLv3 https://www.gnu.org/licenses/gpl-3.0.txt
 
-f="$@"
-
 if [ ! -x "$(command -v convert)" ]; then
     notify-send "Install ImageMagick." -i info
     exit 1
@@ -12,5 +10,5 @@ fi
 
 size=$(zenity --entry --text 'Size in px' --title 'Resize')
 quality=$(zenity --entry --text 'Quality in %' --title 'Quality')
-mogrify -resize "$size>" -quality "$quality%" "$f"
+mogrify -resize "$size>" -quality "$quality%" "$@"
 notify-send "All done!" -i info

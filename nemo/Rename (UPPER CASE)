@@ -3,7 +3,5 @@
 # Author: Dmitri Popov, dmpop@tokyoma.de
 # License: GPLv3 https://www.gnu.org/licenses/gpl-3.0.txt
 
-f="$@"
-
-exiftool '-filename<CreateDate' -d %Y%m%d-%H%M%S%%-c.%%ue "$f"
+exiftool '-filename<CreateDate' -d %Y%m%d-%H%M%S%%-c.%%ue "$@"
 notify-send "All done!" -i info

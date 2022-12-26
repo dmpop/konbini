@@ -3,10 +3,8 @@
 # Author: Dmitri Popov, dmpop@tokyoma.de
 # License: GPLv3 https://www.gnu.org/licenses/gpl-3.0.txt
 
-f="$@"
-
 d=$(mktemp -d)
-cp "$f" "$d"
+cp "$@" "$d"
 python3 -m http.server 8000 -d "$d" & disown
 pid=$(echo $!)
 sleep 300

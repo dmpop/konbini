@@ -5,8 +5,8 @@ A set of Bash shell scripts and desktop files that add useful context actions fo
 - **Geotag by city** geotags the selected photo by obtaining and writing geographical coordinates of the specified city.
 - **Show on map** shows the position of the currently selected geotagged photo on Openstreetmap.
 - **Resize** resizes the currently selected image and reduces its quality.
-- **Rename (lower case)** renames photos using the jhead tool and change the file extension to lowercase. The tool renames photos using the _YYYYMMDD-hhmmss_ format (for example, _19701101-115530_).
-- **Rename (UPPER CASE)** renames photos using the jhead tool and change the file extension to uppercase. The tool renames photos using the _YYYYMMDD-hhmmss_ format (for example, _19701101-115530_).
+- **Rename (lower case)** renames photos using the _YYYYMMDD-hhmmss_ format and changes the file extension to lowercase.
+- **Rename (UPPER CASE)** renames photos using the _YYYYMMDD-hhmmss_ format and changes the file extension to uppercase.
 - **Recompress** recompresses photos using the _jpeg-recompress_ tool.
 - **RAW to JPG** converts currently selected RAW file to the JPG format.
 - **Remove EXIF** removes all EXIF metadata from the currently selected photo.

@@ -3,6 +3,5 @@
 # Author: Dmitri Popov, dmpop@tokyoma.de
 # License: GPLv3 https://www.gnu.org/licenses/gpl-3.0.txt
 
-f="$@"
-exiftool -overwrite_original -all= "$f"
+exiftool -overwrite_original -all= "$@"
 notify-send "All done!" -i info

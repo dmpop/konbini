@@ -3,22 +3,20 @@
 # Author: Dmitri Popov, dmpop@tokyoma.de
 # License: GPLv3 https://www.gnu.org/licenses/gpl-3.0.txt
 
-f="$@"
-
 if [ ! -x "$(command -v exiftool)" ]; then
     notify-send "Install ExifTool" -i info
     exit 1
 fi
 
-c="$(exiftool -s3 -ShutterCount "$f")"
+c="$(exiftool -s3 -ShutterCount "$@")"
 if [[ $c -gt 0 ]]; then
     notify-send "Shutter count: $c" -i info
 else
-    c="$(exiftool -s3 -ImageCount "$f")"
+    c="$(exiftool -s3 -ImageCount "$@")"
     if [[ $c -gt 0 ]]; then
         notify-send "Image count: $c" -i info
     else
-        c="$(exiftool -s3 -ImageNumber "$f")"
+        c="$(exiftool -s3 -ImageNumber "$@")"
         if [[ $c -gt 0 ]]; then
             notify-send "Image number: $c" -i info
         else

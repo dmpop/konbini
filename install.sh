@@ -20,13 +20,13 @@ cp jpeg-recompress $HOME/bin
 
 if [ -x "$(command -v zypper)" ]; then
     sudo zypper up
-    sudo zypper install -y git curl jhead bc jq ImageMagick exiftool libnotify-tools
+    sudo zypper install -y git curl bc jq ImageMagick exiftool libnotify-tools
 fi
 
 if [ -x "$(command -v apt)" ]; then
     sudo apt update
     sudo apt upgrade
-    sudo apt -y install git curl jhead bc jq imagemagick libimage-exiftool-perl libnotify-bin
+    sudo apt -y install git curl bc jq imagemagick libimage-exiftool-perl libnotify-bin
 fi
 if [ -x "$(command -v nemo)" ]; then
     chmod +x nemo/*

@@ -6,7 +6,7 @@
 f="$@"
 
 d=$(mktemp -d)
-cp "$f" "$d"
+cp "$@" "$d"
 python3 -m http.server 8000 -d "$d" & disown
 pid=$(echo $!)
 sleep 300
