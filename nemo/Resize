@@ -13,4 +13,4 @@ fi
 size=$(zenity --entry --text 'Size in px' --title 'Resize')
 quality=$(zenity --entry --text 'Quality in %' --title 'Quality')
 mogrify -resize "$size>" -quality "$quality%" "$f"
-notify-send "Action completed" -i info
+notify-send "All done!" -i info

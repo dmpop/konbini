@@ -3,7 +3,9 @@
 # Author: Dmitri Popov, dmpop@tokyoma.de
 # License: GPLv3 https://www.gnu.org/licenses/gpl-3.0.txt
 
-lat=$(exiftool -n -p '$GPSlatitude' "$@")
-lon=$(exiftool -n -p '$GPSlongitude' "$@")
-osm="http://www.openstreetmap.org/?mlat=$lat&mlon=$lon&zoom=18"
-xdg-open $osm
+if [ ! -z "$lon" ] || [ ! -z "$lat" ]; then
+    osm="http://www.openstreetmap.org/?mlat=$lat&mlon=$lon&zoom=18"
+    xdg-open $osm
+else
+    notify-send "No coordinates detected" -i warning
+fi

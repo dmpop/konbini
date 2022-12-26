@@ -6,4 +6,4 @@
 f="$@"
 
 exiftool '-filename<CreateDate' -d %Y%m%d-%H%M%S%%-c.%%ue "$f"
-notify-send "Action completed" -i info
+notify-send "All done!" -i info

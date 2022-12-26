@@ -5,3 +5,4 @@
 
 f="$@"
 jpeg-recompress "$f" "$f"
+notify-send "All done!" -i info

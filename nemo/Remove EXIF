@@ -5,3 +5,4 @@
 
 f="$@"
 exiftool -overwrite_original -all= "$f"
+notify-send "All done!" -i info

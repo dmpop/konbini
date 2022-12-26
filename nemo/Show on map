@@ -7,5 +7,9 @@ f="$@"
 
 lat=$(exiftool -n -p '$GPSlatitude' "$f")
 lon=$(exiftool -n -p '$GPSlongitude' "$f")
-osm="http://www.openstreetmap.org/?mlat=$lat&mlon=$lon&zoom=18"
-xdg-open $osm
+if [ ! -z "$lon" ] || [ ! -z "$lat" ]; then
+    osm="http://www.openstreetmap.org/?mlat=$lat&mlon=$lon&zoom=18"
+    xdg-open $osm
+else
+    notify-send "No coordinates detected" -i warning
+fi

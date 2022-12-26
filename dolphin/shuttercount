@@ -20,7 +20,7 @@ else
         if [[ $c -gt 0 ]]; then
             notify-send "Image number: $c" -i info
         else
-            notify-send "Unknown" -i info
+            notify-send "No info available" -i warning
         fi
     fi
 fi
