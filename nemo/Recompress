@@ -3,5 +3,7 @@
 # Author: Dmitri Popov, dmpop@tokyoma.de
 # License: GPLv3 https://www.gnu.org/licenses/gpl-3.0.txt
 
+quality=$(zenity --forms --title "Konbini" --text "Quality" --add-combo "Choose quality" --combo-values "low|medium|high|veryhigh")
+
 jpeg-recompress "$@" "$@"
 notify-send "All done!" -i info
