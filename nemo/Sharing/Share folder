@@ -3,8 +3,13 @@
 # Author: Dmitri Popov, dmpop@tokyoma.de
 # License: GPLv3 https://www.gnu.org/licenses/gpl-3.0.txt
 
+ip=$(hostname -I)
+notify-send "$ip" -i info
+
 d=$(pwd)
 python3 -m http.server 8000 -d "$d" & disown
 pid=$(echo $!)
-sleep 30
+sleep 180
 kill -9 $pid
+
+notify-send "Sharing stopped." -i info
