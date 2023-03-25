@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+# Author: Dmitri Popov, dmpop@cameracode.coffee
+# License: GPLv3 https://www.gnu.org/licenses/gpl-3.0.txt
+
+existing_text=$(exiftool -comment -s3 "$@")
+caption=$(zenity --text-info --title="Add caption" --editable)
+exiftool -overwrite_original -comment="$caption $existing_text" "$@"
+notify-send "All done!" -i info
