@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Author: Dmitri Popov, dmpop@tokyoma.de
+# Author: Dmitri Popov, dmpop@cameracode.coffee
 # License: GPLv3 https://www.gnu.org/licenses/gpl-3.0.txt
 
 notify-send "It works!"

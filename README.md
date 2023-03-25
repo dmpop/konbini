@@ -28,7 +28,7 @@ The [Linux Photography](https://gumroad.com/l/linux-photography) book provides d
 
 ## Author
 
-Dmitri Popov [dmpop@tokyoma.de](mailto:dmpop@tokyoma.de)
+Dmitri Popov [dmpop@cameracode.coffee](mailto:dmpop@cameracode.coffee)
 
 ## License
 
