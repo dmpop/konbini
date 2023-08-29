@@ -9,6 +9,5 @@ if [ ! -x "$(command -v convert)" ]; then
 fi
 
 size=$(zenity --entry --text 'Size in px' --title 'Resize')
-quality=$(zenity --entry --text 'Quality in %' --title 'Quality')
-mogrify -resize "$size>" -quality "$quality%" "$@"
+mogrify -resize "$size>" "$@"
 notify-send "All done!" -i info
